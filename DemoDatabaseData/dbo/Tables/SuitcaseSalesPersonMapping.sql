@@ -1,0 +1,26 @@
+﻿CREATE TABLE [dbo].[SuitcaseSalesPersonMapping] (
+    [Id]                BIGINT         IDENTITY (1, 1) NOT NULL,
+    [UserId]            INT            NOT NULL,
+    [GroupId]           BIGINT         NOT NULL,
+    [BranchId]          BIGINT         NOT NULL,
+    [SalesPersonName]   NVARCHAR (100) NOT NULL,
+    [EmailAddress]      NVARCHAR (200) NULL,
+    [DeactivationDate]  DATE           NULL,
+    [IsActive]          BIT            DEFAULT ((1)) NOT NULL,
+    [CreatedDate]       DATETIME       DEFAULT (getutcdate()) NOT NULL,
+    [ModifiedDate]      DATETIME       NULL,
+    [CreatedBy]         INT            NOT NULL,
+    [ModifiedBy]        INT            NULL,
+    [CountryId]         BIGINT         NULL,
+    [TransactionAccess] BIT            DEFAULT ((0)) NULL,
+    [SalesPersonId]     BIGINT         NOT NULL,
+    [BranchName]        NVARCHAR (255) NULL,
+    CONSTRAINT [pk_id_suitcasesalesperson] PRIMARY KEY CLUSTERED ([Id] ASC),
+    CONSTRAINT [FK_SuitcaseSalesPersonMapping_Branch] FOREIGN KEY ([BranchId]) REFERENCES [dbo].[Branch] ([Id]),
+    CONSTRAINT [FK_SuitcaseSalesPersonMapping_Country] FOREIGN KEY ([CountryId]) REFERENCES [dbo].[Country] ([Id]),
+    CONSTRAINT [FK_SuitcaseSalesPersonMapping_CreatedBy] FOREIGN KEY ([CreatedBy]) REFERENCES [dbo].[Users] ([Id]),
+    CONSTRAINT [FK_SuitcaseSalesPersonMapping_Group] FOREIGN KEY ([GroupId]) REFERENCES [dbo].[Group] ([Id]),
+    CONSTRAINT [FK_SuitcaseSalesPersonMapping_ModifiedBy] FOREIGN KEY ([ModifiedBy]) REFERENCES [dbo].[Users] ([Id]),
+    CONSTRAINT [FK_SuitcaseSalesPersonMapping_SalesPerson] FOREIGN KEY ([SalesPersonId]) REFERENCES [dbo].[SalesPerson] ([Id])
+);
+

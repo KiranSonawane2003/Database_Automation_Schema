@@ -1,0 +1,25 @@
+﻿CREATE TABLE [dbo].[ROAInterMediatoryDetails] (
+    [Id]                         BIGINT         IDENTITY (1, 1) NOT NULL,
+    [TemplateLineId]             BIGINT         NOT NULL,
+    [ControlTypeId]              BIGINT         NOT NULL,
+    [CountryId]                  BIGINT         NOT NULL,
+    [Name]                       NVARCHAR (500) NULL,
+    [IsSignaturePerson]          BIT            NULL,
+    [InterMediatoryDetailsValue] NVARCHAR (MAX) NULL,
+    [TemplateLineOptionId]       BIGINT         NULL,
+    [IsActive]                   BIT            NULL,
+    [CreatedDate]                DATETIME       NULL,
+    [ModifiedDate]               DATETIME       NULL,
+    [CreatedBy]                  INT            NULL,
+    [ModifiedBy]                 INT            NULL,
+    [TransactionId]              BIGINT         NULL,
+    CONSTRAINT [PK_ROAInterMediatoryDetails] PRIMARY KEY CLUSTERED ([Id] ASC),
+    CONSTRAINT [FK_ROAInterMediatoryDetails_ControlType] FOREIGN KEY ([ControlTypeId]) REFERENCES [dbo].[ROTControlType] ([Id]),
+    CONSTRAINT [FK_ROAInterMediatoryDetails_Country] FOREIGN KEY ([CountryId]) REFERENCES [dbo].[Country] ([Id]),
+    CONSTRAINT [FK_ROAInterMediatoryDetails_CreatedBy] FOREIGN KEY ([CreatedBy]) REFERENCES [dbo].[Users] ([Id]),
+    CONSTRAINT [FK_ROAInterMediatoryDetails_ModifiedBy] FOREIGN KEY ([ModifiedBy]) REFERENCES [dbo].[Users] ([Id]),
+    CONSTRAINT [FK_ROAInterMediatoryDetails_TemplateLineId] FOREIGN KEY ([TemplateLineId]) REFERENCES [dbo].[ROTTemplateLine] ([Id]),
+    CONSTRAINT [FK_ROAInterMediatoryDetails_TemplateLineOptionID] FOREIGN KEY ([TemplateLineOptionId]) REFERENCES [dbo].[ROTTemplateLineOption] ([Id]),
+    CONSTRAINT [FK_ROAInterMediatoryDetails_TransactionId] FOREIGN KEY ([TransactionId]) REFERENCES [dbo].[Transaction] ([Id])
+);
+

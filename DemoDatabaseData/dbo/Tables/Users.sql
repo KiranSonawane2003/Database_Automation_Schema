@@ -1,0 +1,46 @@
+﻿CREATE TABLE [dbo].[Users] (
+    [Id]                           INT            IDENTITY (1, 1) NOT NULL,
+    [UserName]                     NVARCHAR (56)  NOT NULL,
+    [Title]                        NVARCHAR (50)  NULL,
+    [LastName]                     NVARCHAR (100) NOT NULL,
+    [FirstName]                    NVARCHAR (100) NOT NULL,
+    [HomeGroupId]                  BIGINT         NULL,
+    [HomeBranchId]                 BIGINT         NULL,
+    [IDTypeId]                     BIGINT         NOT NULL,
+    [IDNumber]                     NVARCHAR (100) NOT NULL,
+    [Gender]                       INT            NOT NULL,
+    [BirthDate]                    DATE           NOT NULL,
+    [Email]                        NVARCHAR (100) NULL,
+    [Mobile]                       NVARCHAR (100) NULL,
+    [WorkPhoneCode]                NVARCHAR (10)  NULL,
+    [WorkPhone]                    NVARCHAR (100) NULL,
+    [FaxCode]                      NVARCHAR (10)  NULL,
+    [Fax]                          NVARCHAR (100) NULL,
+    [DeactivationDate]             DATE           NULL,
+    [CountryId]                    BIGINT         NULL,
+    [IsActive]                     BIT            CONSTRAINT [DF_Users_IsActive] DEFAULT ((1)) NOT NULL,
+    [CreatedDate]                  DATETIME       CONSTRAINT [DF_Users_CreatedDate] DEFAULT (getutcdate()) NULL,
+    [ModifiedDate]                 DATETIME       NULL,
+    [CreatedBy]                    INT            NULL,
+    [ModifiedBy]                   INT            NULL,
+    [IdentityId]                   NVARCHAR (128) NULL,
+    [SMTPEmailAddress]             NVARCHAR (200) NULL,
+    [SMTPEmailPassword]            NVARCHAR (MAX) NULL,
+    [SMTPHost]                     NVARCHAR (100) NULL,
+    [SMTPPort]                     NVARCHAR (100) NULL,
+    [DefaultCountryId]             BIGINT         NULL,
+    [IsBlockCopyTransaction]       BIT            DEFAULT ((0)) NULL,
+    [IsBlockDocumentDelete]        BIT            DEFAULT ((0)) NULL,
+    [IsAllowEditableInceptionDate] BIT            DEFAULT ('FALSE') NULL,
+    CONSTRAINT [Users_PK] PRIMARY KEY CLUSTERED ([Id] ASC),
+    CONSTRAINT [Users_FK_Country] FOREIGN KEY ([CountryId]) REFERENCES [dbo].[Country] ([Id]),
+    CONSTRAINT [Users_FK_CountryDefaultCountryId] FOREIGN KEY ([DefaultCountryId]) REFERENCES [dbo].[Country] ([Id]),
+    CONSTRAINT [Users_FK_HomeBranch] FOREIGN KEY ([HomeBranchId]) REFERENCES [dbo].[Branch] ([Id]),
+    CONSTRAINT [Users_Group] FOREIGN KEY ([HomeGroupId]) REFERENCES [dbo].[Group] ([Id]),
+    CONSTRAINT [Users_UQ] UNIQUE NONCLUSTERED ([UserName] ASC)
+);
+
+
+GO
+EXECUTE sp_addextendedproperty @name = N'MS_Description', @value = N'0-Male,1-Female', @level0type = N'SCHEMA', @level0name = N'dbo', @level1type = N'TABLE', @level1name = N'Users', @level2type = N'COLUMN', @level2name = N'Gender';
+

@@ -1,0 +1,366 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <Name>DB_Automation_SeritiDevelopmentV23</Name>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectVersion>4.1</ProjectVersion>
+    <ProjectGuid>{b421948a-afb6-46cf-892b-b843cbb7653b}</ProjectGuid>
+    <DSP>Microsoft.Data.Tools.Schema.Sql.Sql130DatabaseSchemaProvider</DSP>
+    <OutputType>Database</OutputType>
+    <RootPath>
+    </RootPath>
+    <RootNamespace>DB_Automation_SeritiDevelopmentV23</RootNamespace>
+    <AssemblyName>DB_Automation_SeritiDevelopmentV23</AssemblyName>
+    <ModelCollation>1033, CI</ModelCollation>
+    <DefaultFileStructure>BySchemaAndSchemaType</DefaultFileStructure>
+    <DeployToDatabase>True</DeployToDatabase>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetLanguage>CS</TargetLanguage>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <SqlServerVerification>False</SqlServerVerification>
+    <IncludeCompositeObjects>True</IncludeCompositeObjects>
+    <TargetDatabaseSet>True</TargetDatabaseSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>bin\Release\</OutputPath>
+    <BuildScriptName>$(MSBuildProjectName).sql</BuildScriptName>
+    <TreatWarningsAsErrors>False</TreatWarningsAsErrors>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <DefineDebug>false</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <OutputPath>bin\Debug\</OutputPath>
+    <BuildScriptName>$(MSBuildProjectName).sql</BuildScriptName>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">11.0</VisualStudioVersion>
+    <!-- Default to the v11.0 targets path if the targets file for the current VS version is not found -->
+    <SSDTExists Condition="Exists('$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)\SSDT\Microsoft.Data.Tools.Schema.SqlTasks.targets')">True</SSDTExists>
+    <VisualStudioVersion Condition="'$(SSDTExists)' == ''">11.0</VisualStudioVersion>
+  </PropertyGroup>
+  <Import Condition="'$(SQLDBExtensionsRefPath)' != ''" Project="$(SQLDBExtensionsRefPath)\Microsoft.Data.Tools.Schema.SqlTasks.targets" />
+  <Import Condition="'$(SQLDBExtensionsRefPath)' == ''" Project="$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)\SSDT\Microsoft.Data.Tools.Schema.SqlTasks.targets" />
+  <ItemGroup>
+    <Folder Include="Properties" />
+    <Folder Include="dbo\" />
+    <Folder Include="dbo\Tables\" />
+    <Folder Include="dbo\Views\" />
+    <Folder Include="Security\" />
+    <Folder Include="dbo\Functions\" />
+    <Folder Include="dbo\Stored Procedures\" />
+    <Folder Include="dbo\User Defined Types\" />
+    <Folder Include="Scripts\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Build Include="dbo\Tables\Accessories.sql" />
+    <Build Include="dbo\Tables\AdminDocument.sql" />
+    <Build Include="dbo\Tables\AdminDocumentCategory.sql" />
+    <Build Include="dbo\Tables\ApiLogEntry.sql" />
+    <Build Include="dbo\Tables\ApplicationAPILog.sql" />
+    <Build Include="dbo\Tables\Audit.sql" />
+    <Build Include="dbo\Tables\Branch.sql" />
+    <Build Include="dbo\Tables\BranchCalculator.sql" />
+    <Build Include="dbo\Tables\BranchCompanies.sql" />
+    <Build Include="dbo\Tables\BranchCompanyReference.sql" />
+    <Build Include="dbo\Tables\BranchCompanyTypeMapping.sql" />
+    <Build Include="dbo\Tables\BranchLine.sql" />
+    <Build Include="dbo\Tables\BranchProduct.sql" />
+    <Build Include="dbo\Tables\BranchSSF.sql" />
+    <Build Include="dbo\Tables\Company.sql" />
+    <Build Include="dbo\Tables\CompanyCompanyTypeMapping.sql" />
+    <Build Include="dbo\Tables\CompanyDocument.sql" />
+    <Build Include="dbo\Tables\CompanyDocumentCategoryMapping.sql" />
+    <Build Include="dbo\Tables\CompanyFinanceApplicationFieldValidations.sql" />
+    <Build Include="dbo\Tables\CompanyInformation.sql" />
+    <Build Include="dbo\Tables\CompanyLine.sql" />
+    <Build Include="dbo\Tables\CompanyMapping.sql" />
+    <Build Include="dbo\Tables\CompanyNationalityMapping.sql" />
+    <Build Include="dbo\Tables\CompanyProductSubTypeMapping.sql" />
+    <Build Include="dbo\Tables\CompanyProductTypeMapping.sql" />
+    <Build Include="dbo\Tables\CompanyStaticValueMapping.sql" />
+    <Build Include="dbo\Tables\CompanyType.sql" />
+    <Build Include="dbo\Tables\CompanyVehicleTypeMapping.sql" />
+    <Build Include="dbo\Tables\CompanyWebService.sql" />
+    <Build Include="dbo\Tables\Country.sql" />
+    <Build Include="dbo\Tables\DalasStatusHistory.sql" />
+    <Build Include="dbo\Tables\DealTrackerReportAnalytics.sql" />
+    <Build Include="dbo\Tables\DealTrackerReportFilter.sql" />
+    <Build Include="dbo\Tables\DealTrackerReportFilterMapping.sql" />
+    <Build Include="dbo\Tables\DOCReportFilter.sql" />
+    <Build Include="dbo\Tables\DOCReportFilterMapping.sql" />
+    <Build Include="dbo\Tables\DocumentCategory.sql" />
+    <Build Include="dbo\Tables\ELMAH_Error.sql" />
+    <Build Include="dbo\Tables\EmailDetailsManual.sql" />
+    <Build Include="dbo\Tables\EmailDetailsManualAttachments.sql" />
+    <Build Include="dbo\Tables\EmailTemplateAccess.sql" />
+    <Build Include="dbo\Tables\EmailTemplateLine.sql" />
+    <Build Include="dbo\Tables\EmailTemplateLineFiananceStatusMapping.sql" />
+    <Build Include="dbo\Tables\EmailTemplateLineTransactionStatusMapping.sql" />
+    <Build Include="dbo\Tables\EmiratesCardErrorLog.sql" />
+    <Build Include="dbo\Tables\EmiratesIDCardDetails.sql" />
+    <Build Include="dbo\Tables\EmiratesIDCardReportFilter.sql" />
+    <Build Include="dbo\Tables\EmiratesIDCardReportFilterMapping.sql" />
+    <Build Include="dbo\Tables\ErrorLog.sql" />
+    <Build Include="dbo\Tables\ExceptionLogs.sql" />
+    <Build Include="dbo\Tables\ExpiryMonth.sql" />
+    <Build Include="dbo\Tables\FinanceApplicationFieldMaster.sql" />
+    <Build Include="dbo\Tables\FinanceApplicationHistory.sql" />
+    <Build Include="dbo\Tables\FinanceStatus.sql" />
+    <Build Include="dbo\Tables\FinanceStatusMapping.sql" />
+    <Build Include="dbo\Tables\FinanceTerm.sql" />
+    <Build Include="dbo\Tables\FSPCompany.sql" />
+    <Build Include="dbo\Tables\FSPPerson.sql" />
+    <Build Include="dbo\Tables\GeneratedCSVHistory.sql" />
+    <Build Include="dbo\Tables\GlobalSettings.sql" />
+    <Build Include="dbo\Tables\Group.sql" />
+    <Build Include="dbo\Tables\GroupBranchDocCategoryMapping.sql" />
+    <Build Include="dbo\Tables\GroupBranchTransactionTypeMapping.sql" />
+    <Build Include="dbo\Tables\GroupCompanies.sql" />
+    <Build Include="dbo\Tables\GroupCompanyTypeMapping.sql" />
+    <Build Include="dbo\Tables\GroupDocument.sql" />
+    <Build Include="dbo\Tables\GroupLine.sql" />
+    <Build Include="dbo\Tables\GroupProduct.sql" />
+    <Build Include="dbo\Tables\GroupProductNotes.sql" />
+    <Build Include="dbo\Tables\GroupProductOption.sql" />
+    <Build Include="dbo\Tables\GroupSSF.sql" />
+    <Build Include="dbo\Tables\GroupTemplate.sql" />
+    <Build Include="dbo\Tables\GroupWording.sql" />
+    <Build Include="dbo\Tables\HFAItemVehicleContactDetails.sql" />
+    <Build Include="dbo\Tables\HFAItemVehicleDetails.sql" />
+    <Build Include="dbo\Tables\HFAItemVehicleDetailsDocument.sql" />
+    <Build Include="dbo\Tables\Holidays.sql" />
+    <Build Include="dbo\Tables\IdType.sql" />
+    <Build Include="dbo\Tables\IGFLicence.sql" />
+    <Build Include="dbo\Tables\InceptTransaction.sql" />
+    <Build Include="dbo\Tables\InceptTransactionAccessories.sql" />
+    <Build Include="dbo\Tables\InceptTransactionBankingDetails.sql" />
+    <Build Include="dbo\Tables\InceptTransactionClient.sql" />
+    <Build Include="dbo\Tables\InceptTransactionContact.sql" />
+    <Build Include="dbo\Tables\InceptTransactionEmployerDetails.sql" />
+    <Build Include="dbo\Tables\InceptTransactionFinanceApplication.sql" />
+    <Build Include="dbo\Tables\InceptTransactionIncomeAndExpenditure.sql" />
+    <Build Include="dbo\Tables\InceptTransactionInsuranceApplication.sql" />
+    <Build Include="dbo\Tables\InceptTransactionItem.sql" />
+    <Build Include="dbo\Tables\InceptTransactionNotes.sql" />
+    <Build Include="dbo\Tables\InceptTransactionProduct.sql" />
+    <Build Include="dbo\Tables\InceptTransactionVehicle.sql" />
+    <Build Include="dbo\Tables\InsuranceApplicationHistory.sql" />
+    <Build Include="dbo\Tables\InsuranceLeadReportFilter.sql" />
+    <Build Include="dbo\Tables\InsuranceLeadReportFilterMapping.sql" />
+    <Build Include="dbo\Tables\ItemTypes.sql" />
+    <Build Include="dbo\Tables\ItemUse.sql" />
+    <Build Include="dbo\Tables\Languages.sql" />
+    <Build Include="dbo\Tables\Localizations.sql" />
+    <Build Include="dbo\Tables\MasterReport.sql" />
+    <Build Include="dbo\Tables\MenuTab.sql" />
+    <Build Include="dbo\Tables\MultipleFinanceSubmissionHistory.sql" />
+    <Build Include="dbo\Tables\Notes.sql" />
+    <Build Include="dbo\Tables\Package.sql" />
+    <Build Include="dbo\Tables\PackageBranch.sql" />
+    <Build Include="dbo\Tables\PackageGroup.sql" />
+    <Build Include="dbo\Tables\PackageProduct.sql" />
+    <Build Include="dbo\Tables\PackageWording.sql" />
+    <Build Include="dbo\Tables\PasswordHistory.sql" />
+    <Build Include="dbo\Tables\PayoverJob.sql" />
+    <Build Include="dbo\Tables\PayoverReportFilter.sql" />
+    <Build Include="dbo\Tables\PayoverReportFilterMapping.sql" />
+    <Build Include="dbo\Tables\Product.sql" />
+    <Build Include="dbo\Tables\ProductBrochure.sql" />
+    <Build Include="dbo\Tables\ProductCompanies.sql" />
+    <Build Include="dbo\Tables\ProductCompanyTypeMapping.sql" />
+    <Build Include="dbo\Tables\ProductDetailsReportFilter.sql" />
+    <Build Include="dbo\Tables\ProductDetailsReportFilterMapping.sql" />
+    <Build Include="dbo\Tables\ProductInvoiceCompany.sql" />
+    <Build Include="dbo\Tables\ProductLine.sql" />
+    <Build Include="dbo\Tables\ProductOption.sql" />
+    <Build Include="dbo\Tables\ProductOptionCompanies.sql" />
+    <Build Include="dbo\Tables\ProductOptionMapping.sql" />
+    <Build Include="dbo\Tables\ProductOptionPrice.sql" />
+    <Build Include="dbo\Tables\ProductOptionPriceFinanceTermMapping.sql" />
+    <Build Include="dbo\Tables\ProductOptionPriceVehCondMapping.sql" />
+    <Build Include="dbo\Tables\ProductOptionPriceVehUseMapping.sql" />
+    <Build Include="dbo\Tables\ProductOptionWording.sql" />
+    <Build Include="dbo\Tables\ProductSubType.sql" />
+    <Build Include="dbo\Tables\ProductType.sql" />
+    <Build Include="dbo\Tables\ProductWording.sql" />
+    <Build Include="dbo\Tables\Province.sql" />
+    <Build Include="dbo\Tables\ReferenceType.sql" />
+    <Build Include="dbo\Tables\ROAInterMediatoryDetails.sql" />
+    <Build Include="dbo\Tables\ROANotes.sql" />
+    <Build Include="dbo\Tables\ROAProductAcceptance.sql" />
+    <Build Include="dbo\Tables\ROAProductIdentified.sql" />
+    <Build Include="dbo\Tables\RolloverDetails.sql" />
+    <Build Include="dbo\Tables\ROTControlAdditionalComments.sql" />
+    <Build Include="dbo\Tables\ROTControlType.sql" />
+    <Build Include="dbo\Tables\ROTTemplateLine.sql" />
+    <Build Include="dbo\Tables\ROTTemplateLineAccess.sql" />
+    <Build Include="dbo\Tables\ROTTemplateLineOption.sql" />
+    <Build Include="dbo\Tables\SalesPerson.sql" />
+    <Build Include="dbo\Tables\ServiceType.sql" />
+    <Build Include="dbo\Tables\SMTPDetails.sql" />
+    <Build Include="dbo\Tables\StaticCategory.sql" />
+    <Build Include="dbo\Tables\StaticValue.sql" />
+    <Build Include="dbo\Tables\Suburb.sql" />
+    <Build Include="dbo\Tables\SuitcaseSalesPersonMapping.sql" />
+    <Build Include="dbo\Tables\TempBusinessManagerOutput.sql" />
+    <Build Include="dbo\Tables\Template.sql" />
+    <Build Include="dbo\Tables\TemplateCategory.sql" />
+    <Build Include="dbo\Tables\Transaction.sql" />
+    <Build Include="dbo\Tables\TransactionAccessories.sql" />
+    <Build Include="dbo\Tables\TransactionAPIDetailsReportFilter.sql" />
+    <Build Include="dbo\Tables\TransactionBank.sql" />
+    <Build Include="dbo\Tables\TransactionBankingDetails.sql" />
+    <Build Include="dbo\Tables\TransactionClient.sql" />
+    <Build Include="dbo\Tables\TransactionClientHistory.sql" />
+    <Build Include="dbo\Tables\TransactionClientType.sql" />
+    <Build Include="dbo\Tables\TransactionContact.sql" />
+    <Build Include="dbo\Tables\TransactionContactEmployerMapping.sql" />
+    <Build Include="dbo\Tables\TransactionContactHistory.sql" />
+    <Build Include="dbo\Tables\TransactionContactIncomeAndExpenditureMapping.sql" />
+    <Build Include="dbo\Tables\TransactionDebitBankAccount.sql" />
+    <Build Include="dbo\Tables\TransactionDocument.sql" />
+    <Build Include="dbo\Tables\TransactionEmployerDetails.sql" />
+    <Build Include="dbo\Tables\TransactionFinanceApplication.sql" />
+    <Build Include="dbo\Tables\TransactionFinanceDocument.sql" />
+    <Build Include="dbo\Tables\TransactionFinanceStatusDetailView.sql" />
+    <Build Include="dbo\Tables\TransactionFinanceStatusMapping.sql" />
+    <Build Include="dbo\Tables\TransactionFinanceStatusView.sql" />
+    <Build Include="dbo\Tables\TransactionHistory.sql" />
+    <Build Include="dbo\Tables\TransactionIncomeAndExpenditure.sql" />
+    <Build Include="dbo\Tables\TransactionIncomeAndExpenditureIncomeSourceMapping.sql" />
+    <Build Include="dbo\Tables\TransactionInsuranceApplication.sql" />
+    <Build Include="dbo\Tables\TransactionItem.sql" />
+    <Build Include="dbo\Tables\TransactionItemHistory.sql" />
+    <Build Include="dbo\Tables\TransactionNotes.sql" />
+    <Build Include="dbo\Tables\TransactionProduct.sql" />
+    <Build Include="dbo\Tables\TransactionReportFilter.sql" />
+    <Build Include="dbo\Tables\TransactionReportFilterMapping.sql" />
+    <Build Include="dbo\Tables\TransactionStatus.sql" />
+    <Build Include="dbo\Tables\TransactionStatusTest.sql" />
+    <Build Include="dbo\Tables\TransactionSystemGeneratedDoc.sql" />
+    <Build Include="dbo\Tables\TransactionType.sql" />
+    <Build Include="dbo\Tables\TransactionUninceptLog.sql" />
+    <Build Include="dbo\Tables\TransactionUpdateLog.sql" />
+    <Build Include="dbo\Tables\TransactionVehicle.sql" />
+    <Build Include="dbo\Tables\TransAndFinAppStatusHistory.sql" />
+    <Build Include="dbo\Tables\UserCompanyMapping.sql" />
+    <Build Include="dbo\Tables\UserDeletedRolesMapping.sql" />
+    <Build Include="dbo\Tables\UserDetailsReportFilter.sql" />
+    <Build Include="dbo\Tables\UserDetailsReportFilterMapping.sql" />
+    <Build Include="dbo\Tables\UserDocument.sql" />
+    <Build Include="dbo\Tables\UserGroupBranchMapping.sql" />
+    <Build Include="dbo\Tables\Users.sql" />
+    <Build Include="dbo\Tables\UsersFinanceStatusMapping.sql" />
+    <Build Include="dbo\Tables\UsersInCountry.sql" />
+    <Build Include="dbo\Tables\UserTransactionMapping.sql" />
+    <Build Include="dbo\Tables\Vehicle.sql" />
+    <Build Include="dbo\Tables\VehicleAccessoriesMapping.sql" />
+    <Build Include="dbo\Tables\VehicleBodyType.sql" />
+    <Build Include="dbo\Tables\VehicleGroupBranchMapping.sql" />
+    <Build Include="dbo\Tables\VehicleManufacturer.sql" />
+    <Build Include="dbo\Tables\VehicleType.sql" />
+    <Build Include="dbo\Tables\webpages_Membership.sql" />
+    <Build Include="dbo\Tables\webpages_OAuthMembership.sql" />
+    <Build Include="dbo\Tables\webpages_Roles.sql" />
+    <Build Include="dbo\Tables\webpages_UsersInRoles.sql" />
+    <Build Include="dbo\Tables\WebsServiceLine.sql" />
+    <Build Include="dbo\Tables\WordingCategory.sql" />
+    <Build Include="dbo\Tables\WorkingDays.sql" />
+    <Build Include="dbo\Views\ListUsers.sql" />
+    <Build Include="dbo\Views\TransactionBankAccountView.sql" />
+    <Build Include="dbo\Views\TransactionBankView.sql" />
+    <Build Include="dbo\Views\TransactionContactsView.sql" />
+    <Build Include="dbo\Views\TransactionCreditCardView.sql" />
+    <Build Include="dbo\Views\TransactionIncomeAndExpenditureView.sql" />
+    <Build Include="dbo\Views\TransactionLiabilityAccountView.sql" />
+    <Build Include="dbo\Views\ViewTransaction.sql" />
+    <Build Include="dbo\Views\ViewTransactionDetail.sql" />
+    <Build Include="dbo\Views\ViewVehicles.sql" />
+    <Build Include="Security\seriti.sql" />
+    <Build Include="Security\seritiapp.sql" />
+    <Build Include="Security\seritiappuser.sql" />
+    <Build Include="Security\RoleMemberships.sql" />
+    <Build Include="dbo\Functions\DistinctList.sql" />
+    <Build Include="dbo\Functions\fn_GetHolidayMinutes.sql" />
+    <Build Include="dbo\Functions\fn_GetUTCOffsetMinutes.sql" />
+    <Build Include="dbo\Functions\fn_GetWorkingDayMinuts.sql" />
+    <Build Include="dbo\Functions\fnGetBankDealReference.sql" />
+    <Build Include="dbo\Functions\fnGetBankDetails.sql" />
+    <Build Include="dbo\Functions\fnGetBankNameStatusandNotes.sql" />
+    <Build Include="dbo\Functions\fnGetDynamicQueryColumnNames.sql" />
+    <Build Include="dbo\Functions\fnGetFinanceCompanyNameList.sql" />
+    <Build Include="dbo\Functions\fnGetIncomeSource.sql" />
+    <Build Include="dbo\Functions\fnGetQueryFromTable.sql" />
+    <Build Include="dbo\Functions\fnGetTransactionIncomeAndExpenditure.sql" />
+    <Build Include="dbo\Functions\fnGetTransactionInsuranceApplicationDateAndCompany.sql" />
+    <Build Include="dbo\Functions\getdatetimediff.sql" />
+    <Build Include="dbo\Functions\Split.sql" />
+    <Build Include="dbo\Functions\SplitString.sql" />
+    <Build Include="dbo\Functions\SplitStrings_Moden.sql" />
+    <Build Include="dbo\Stored Procedures\AuditLog.sql" />
+    <Build Include="dbo\Stored Procedures\BulkInsertUpdate_Accessories.sql" />
+    <Build Include="dbo\Stored Procedures\BulkInsertUpdate_Vehicle.sql" />
+    <Build Include="dbo\Stored Procedures\ELMAH_GetErrorsXml.sql" />
+    <Build Include="dbo\Stored Procedures\ELMAH_GetErrorXml.sql" />
+    <Build Include="dbo\Stored Procedures\ELMAH_LogError.sql" />
+    <Build Include="dbo\Stored Procedures\GetAllEmployeeDetails.sql" />
+    <Build Include="dbo\Stored Procedures\Import_Accessory.sql" />
+    <Build Include="dbo\Stored Procedures\Import_NewVehicleAccessory.sql" />
+    <Build Include="dbo\Stored Procedures\Import_Vehicle.sql" />
+    <Build Include="dbo\Stored Procedures\Import_VehicleAccessory_Mapping.sql" />
+    <Build Include="dbo\Stored Procedures\Import_VehicleUAE.sql" />
+    <Build Include="dbo\Stored Procedures\LinkingFleetTransactions.sql" />
+    <Build Include="dbo\Stored Procedures\spGetAuditHistory.sql" />
+    <Build Include="dbo\Stored Procedures\spGetBManagerSummary.sql" />
+    <Build Include="dbo\Stored Procedures\spGetByTransactionTypeAndVehicleCondition.sql" />
+    <Build Include="dbo\Stored Procedures\spGetCashDealsSummary.sql" />
+    <Build Include="dbo\Stored Procedures\spGetDealerSummary.sql" />
+    <Build Include="dbo\Stored Procedures\spGetDealTrackerReport.sql" />
+    <Build Include="dbo\Stored Procedures\spGetDocTransSummary.sql" />
+    <Build Include="dbo\Stored Procedures\spGetFinanceApplication.sql" />
+    <Build Include="dbo\Stored Procedures\spGetFinanceDealsSummary.sql" />
+    <Build Include="dbo\Stored Procedures\spGetFinanceSummary.sql" />
+    <Build Include="dbo\Stored Procedures\spGetFirstGPSummary.sql" />
+    <Build Include="dbo\Stored Procedures\spGetPenetrationSummary.sql" />
+    <Build Include="dbo\Stored Procedures\spGetRollOverIncome.sql" />
+    <Build Include="dbo\Stored Procedures\spGetSalesPersonSummary.sql" />
+    <Build Include="dbo\Stored Procedures\spGetSecondGPSummary.sql" />
+    <Build Include="dbo\Stored Procedures\spGetTransactionAuditHistory.sql" />
+    <Build Include="dbo\Stored Procedures\spGettransactionDetailsReport.sql" />
+    <Build Include="dbo\Stored Procedures\spListTransactionPagination.sql" />
+    <Build Include="dbo\Stored Procedures\SPMapProductCompanyToBranch.sql" />
+    <Build Include="dbo\Stored Procedures\spSearchTransactionPagination.sql" />
+    <Build Include="dbo\Stored Procedures\spTransactionDetailsAuditLog.sql" />
+    <Build Include="dbo\Stored Procedures\spUninceptAuditLog.sql" />
+    <Build Include="dbo\Stored Procedures\SyncFleetTransactions.sql" />
+    <Build Include="dbo\Stored Procedures\USP.sql" />
+    <Build Include="dbo\Stored Procedures\USP3.sql" />
+    <Build Include="dbo\User Defined Types\AccessoriesSchema.sql" />
+    <Build Include="dbo\User Defined Types\AccessoriesSchemaV1.sql" />
+    <Build Include="dbo\User Defined Types\ColumnList.sql" />
+    <Build Include="dbo\User Defined Types\NewVehicleAccessoriesSchema.sql" />
+    <Build Include="dbo\User Defined Types\TransactionsIdList.sql" />
+    <Build Include="dbo\User Defined Types\VehicleAccessoryCodeSchema.sql" />
+    <Build Include="dbo\User Defined Types\VehicleAccessoryCodeSchemaV1.sql" />
+    <Build Include="dbo\User Defined Types\VehicleSchema.sql" />
+    <Build Include="dbo\User Defined Types\VehicleSchemaV1.sql" />
+    <Build Include="dbo\User Defined Types\VehicleSchemaV2.sql" />
+    <Build Include="dbo\User Defined Types\VehicleUAESchemaV1.sql" />
+    <None Include="Scripts\ScriptsIgnoredOnImport.sql" />
+    <Build Include="dbo\Tables\View1.sql" />
+  </ItemGroup>
+</Project>

@@ -1,0 +1,6 @@
+C:\Users\AshishV\source\repos\Database_Automation\DemoDatabaseData\DB_Automation_SeritiDevelopmentV23\bin\Debug\DB_Automation_SeritiDevelopmentV23.dacpac
+C:\Users\AshishV\source\repos\Database_Automation\DemoDatabaseData\DB_Automation_SeritiDevelopmentV23\bin\Debug\DB_Automation_SeritiDevelopmentV23.dll
+C:\Users\AshishV\source\repos\Database_Automation\DemoDatabaseData\DB_Automation_SeritiDevelopmentV23\bin\Debug\DB_Automation_SeritiDevelopmentV23.pdb
+C:\Users\AshishV\source\repos\Database_Automation\DemoDatabaseData\DB_Automation_SeritiDevelopmentV23\obj\Debug\DB_Automation_SeritiDevelopmentV23.dll
+C:\Users\AshishV\source\repos\Database_Automation\DemoDatabaseData\DB_Automation_SeritiDevelopmentV23\obj\Debug\DB_Automation_SeritiDevelopmentV23.pdb
+C:\Users\AshishV\source\repos\Database_Automation\DemoDatabaseData\DB_Automation_SeritiDevelopmentV23\obj\Debug\DB_Automation_SeritiDevelopmentV23.sqlprojAssemblyReference.cache

@@ -1,0 +1,28 @@
+﻿CREATE TABLE [dbo].[InceptTransactionInsuranceApplication] (
+    [Id]                    BIGINT          IDENTITY (1, 1) NOT NULL,
+    [TransactionId]         BIGINT          NOT NULL,
+    [InsuranceCompanyId]    BIGINT          NULL,
+    [InsuranceCompanyValue] NVARCHAR (MAX)  NULL,
+    [ContactNote]           NVARCHAR (500)  NULL,
+    [GeneralNote]           NVARCHAR (500)  NULL,
+    [TotalInsuranceAmount]  DECIMAL (18, 2) NULL,
+    [CountryId]             BIGINT          NULL,
+    [CountryValue]          NVARCHAR (50)   NULL,
+    [IsActive]              BIT             DEFAULT ((1)) NOT NULL,
+    [CreatedDate]           DATETIME        DEFAULT (getutcdate()) NOT NULL,
+    [ModifiedDate]          DATETIME        NULL,
+    [CreatedBy]             INT             NOT NULL,
+    [CreatedByValue]        NVARCHAR (50)   NULL,
+    [Modifiedby]            INT             NULL,
+    [ModifiedByValue]       NVARCHAR (50)   NULL,
+    [InceptTransactionId]   BIGINT          NOT NULL,
+    [ProductTypeId]         BIGINT          NULL,
+    [ProductTypeValue]      NVARCHAR (100)  NULL,
+    [ProductSubTypeId]      BIGINT          NULL,
+    [ProductSubTypeValue]   NVARCHAR (100)  NULL,
+    [IsLeadSent]            BIT             NULL,
+    [LeadSentDate]          DATETIME        NULL,
+    CONSTRAINT [InceptTransactionInsuranceApplication_PK] PRIMARY KEY CLUSTERED ([Id] ASC),
+    CONSTRAINT [FK_InceptTransactionInsuranceApplication_InceptTransaction] FOREIGN KEY ([InceptTransactionId]) REFERENCES [dbo].[InceptTransaction] ([Id])
+);
+

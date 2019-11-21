@@ -1,0 +1,25 @@
+﻿/****** Object:  UserDefinedTableType [dbo].[VehicleUAESchemaV1]    Script Date: 11/20/2019 11:25:27 AM ******/
+CREATE TYPE [dbo].[VehicleUAESchemaV1] AS TABLE(
+	[Id] [bigint] NOT NULL,
+	[Manufacturer] [nvarchar](100) NULL,
+	[Model] [nvarchar](100) NULL,
+	[Variant] [nvarchar](100) NULL,
+	[Trim] [nvarchar](100) NULL,
+	[ModelYear] [int] NULL,
+	[Transmission] [nvarchar](100) NULL,
+	[BodyType] [nvarchar](100) NULL,
+	[FuelType] [nvarchar](100) NULL,
+	[EngineCapacity] [int] NULL,
+	[Doors] [nvarchar](100) NULL,
+	[Cylinders] [int] NULL,
+	[Weight] [int] NULL,
+	[EnginePower] [nvarchar](100) NULL,
+	[VehicleType] [nvarchar](100) NULL,
+	[CountryId] [bigint] NULL,
+	[IsActive] [bit] NOT NULL,
+	[CreatedDate] [date] NOT NULL,
+	[ModifiedDate] [date] NULL,
+	[CreatedBy] [int] NOT NULL,
+	[ModifiedBy] [int] NULL,
+	[SequenceNumber] [bigint] NOT NULL
+)

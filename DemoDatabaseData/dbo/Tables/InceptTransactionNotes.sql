@@ -1,0 +1,27 @@
+﻿CREATE TABLE [dbo].[InceptTransactionNotes] (
+    [Id]                         BIGINT          IDENTITY (1, 1) NOT NULL,
+    [TransactionId]              BIGINT          NULL,
+    [BodyConditionId]            BIGINT          NULL,
+    [BodyConditionIdValue]       NVARCHAR (50)   NULL,
+    [MechanicalConditionId]      BIGINT          NULL,
+    [MechanicalConditionIdValue] NVARCHAR (50)   NULL,
+    [Trim]                       NVARCHAR (50)   NULL,
+    [Warranty]                   BIGINT          NULL,
+    [WarrantyValue]              NVARCHAR (50)   NULL,
+    [FuelTypeId]                 BIGINT          NULL,
+    [FuelTypeIdValue]            NVARCHAR (50)   NULL,
+    [Features]                   NVARCHAR (1000) NULL,
+    [CountryId]                  BIGINT          NULL,
+    [CountryIdValue]             NVARCHAR (50)   NULL,
+    [IsActive]                   BIT             DEFAULT ((1)) NOT NULL,
+    [CreatedDate]                DATETIME        DEFAULT (getutcdate()) NOT NULL,
+    [ModifiedDate]               DATETIME        NULL,
+    [CreatedBy]                  INT             NULL,
+    [CreatedByValue]             NVARCHAR (50)   NULL,
+    [ModifiedBy]                 INT             NULL,
+    [ModifiedByValue]            NVARCHAR (50)   NULL,
+    [InceptTransactionId]        BIGINT          NULL,
+    CONSTRAINT [InceptTransactionNotes_PK] PRIMARY KEY CLUSTERED ([Id] ASC),
+    CONSTRAINT [InceptTransactionNotes_FK_InceptTransaction] FOREIGN KEY ([InceptTransactionId]) REFERENCES [dbo].[InceptTransaction] ([Id])
+);
+

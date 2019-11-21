@@ -1,0 +1,20 @@
+﻿CREATE TYPE [dbo].[AccessoriesSchema] AS TABLE (
+    [Id]             BIGINT          NOT NULL,
+    [AccessoryName]  NVARCHAR (100)  NOT NULL,
+    [Code]           NVARCHAR (50)   NOT NULL,
+    [IsGeneric]      BIT             NOT NULL,
+    [GroupId]        BIGINT          NULL,
+    [BranchId]       BIGINT          NULL,
+    [CostPrice]      DECIMAL (18, 2) NULL,
+    [SellingPrice]   DECIMAL (18, 2) NULL,
+    [Description]    NVARCHAR (200)  NULL,
+    [TemplateId]     BIGINT          NULL,
+    [CountryId]      BIGINT          NULL,
+    [IsActive]       BIT             NOT NULL,
+    [IsEditable]     BIT             NULL,
+    [CreatedDate]    DATETIME        NOT NULL,
+    [ModifiedDate]   DATETIME        NULL,
+    [CreatedBy]      INT             NOT NULL,
+    [ModifiedBy]     INT             NULL,
+    [SequenceNumber] BIGINT          NOT NULL);
+

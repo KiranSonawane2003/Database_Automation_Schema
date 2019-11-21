@@ -1,0 +1,22 @@
+﻿CREATE TYPE [dbo].[VehicleSchemaV1] AS TABLE (
+    [Id]               BIGINT         NOT NULL,
+    [VehicleCode]      NVARCHAR (100) NULL,
+    [Make]             NVARCHAR (100) NULL,
+    [Model]            NVARCHAR (100) NULL,
+    [VehicleType]      NVARCHAR (100) NULL,
+    [BodyType]         NVARCHAR (100) NULL,
+    [IntroductionDate] DATE           NULL,
+    [ModelYear]        INT            NULL,
+    [TerminationDate]  DATE           NULL,
+    [EngineCapacity]   INT            NULL,
+    [EnginePower]      NVARCHAR (100) NULL,
+    [Cylinders]        INT            NULL,
+    [Doors]            NVARCHAR (100) NULL,
+    [CountryId]        BIGINT         NULL,
+    [IsActive]         BIT            NOT NULL,
+    [CreatedDate]      DATE           NOT NULL,
+    [ModifiedDate]     DATE           NULL,
+    [CreatedBy]        INT            NOT NULL,
+    [ModifiedBy]       INT            NULL,
+    [SequenceNumber]   BIGINT         NOT NULL);
+

@@ -1,0 +1,27 @@
+﻿CREATE TABLE [dbo].[ROTTemplateLine] (
+    [Id]                          BIGINT          IDENTITY (1, 1) NOT NULL,
+    [TemplateId]                  BIGINT          NOT NULL,
+    [ControlTypeId]               BIGINT          NULL,
+    [SignatureControlTypeID]      BIGINT          NULL,
+    [CountryId]                   BIGINT          NOT NULL,
+    [Label]                       NVARCHAR (MAX)  NULL,
+    [IsAdditionalComments]        BIT             NULL,
+    [ImagePath]                   NVARCHAR (1000) NULL,
+    [IsDisplayCustomerAccessPage] BIT             NULL,
+    [SortKey]                     INT             NULL,
+    [StartDate]                   DATETIME        NULL,
+    [EndDate]                     DATETIME        NULL,
+    [IsActive]                    BIT             NULL,
+    [CreatedDate]                 DATETIME        NULL,
+    [ModifiedDate]                DATETIME        NULL,
+    [CreatedBy]                   INT             NULL,
+    [ModifiedBy]                  INT             NULL,
+    CONSTRAINT [PK_ROTTemplateLine] PRIMARY KEY CLUSTERED ([Id] ASC),
+    CONSTRAINT [FK_ROTTemplateLine_ControlType] FOREIGN KEY ([ControlTypeId]) REFERENCES [dbo].[ROTControlType] ([Id]),
+    CONSTRAINT [FK_ROTTemplateLine_Country] FOREIGN KEY ([CountryId]) REFERENCES [dbo].[Country] ([Id]),
+    CONSTRAINT [FK_ROTTemplateLine_CreatedBy] FOREIGN KEY ([CreatedBy]) REFERENCES [dbo].[Users] ([Id]),
+    CONSTRAINT [FK_ROTTemplateLine_ModifiedBy] FOREIGN KEY ([ModifiedBy]) REFERENCES [dbo].[Users] ([Id]),
+    CONSTRAINT [FK_ROTTemplateLine_SignatureControlType] FOREIGN KEY ([SignatureControlTypeID]) REFERENCES [dbo].[ROTControlType] ([Id]),
+    CONSTRAINT [FK_ROTTemplateLine_Template] FOREIGN KEY ([TemplateId]) REFERENCES [dbo].[Template] ([Id])
+);
+

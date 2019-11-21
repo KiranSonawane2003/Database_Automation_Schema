@@ -1,0 +1,47 @@
+﻿CREATE TABLE [dbo].[TransactionProduct] (
+    [Id]                        BIGINT          IDENTITY (1, 1) NOT NULL,
+    [TransactionId]             BIGINT          NOT NULL,
+    [ProductId]                 BIGINT          NOT NULL,
+    [ProductOptionId]           BIGINT          NULL,
+    [ProductLineId]             BIGINT          NULL,
+    [RetailPrice]               DECIMAL (18, 2) NOT NULL,
+    [IsPayByCash]               BIT             CONSTRAINT [TransactionProduct_DF_PayByCash] DEFAULT ((0)) NOT NULL,
+    [NotOffered]                BIT             NULL,
+    [Decline]                   BIT             NULL,
+    [NotApplicable]             BIT             NULL,
+    [AdditionalKM]              INT             NULL,
+    [AdditionalMonth]           INT             NULL,
+    [ExpiryKM]                  INT             NULL,
+    [ExpiryMonth]               INT             NULL,
+    [IsInsuranceProduct]        BIT             NULL,
+    [CountryId]                 BIGINT          NULL,
+    [IsActive]                  BIT             CONSTRAINT [TransactionProduct_DF_IsActive] DEFAULT ((1)) NOT NULL,
+    [CreatedDate]               DATETIME        CONSTRAINT [TransactionProduct_DF_CreatedDate] DEFAULT (getutcdate()) NOT NULL,
+    [ModifiedDate]              DATETIME        NULL,
+    [CreatedBy]                 INT             NOT NULL,
+    [ModifiedBy]                INT             NULL,
+    [BodyConditionId]           BIGINT          NULL,
+    [MechanicalConditionId]     BIGINT          NULL,
+    [IsEditablePayover]         BIT             NULL,
+    [TransactionTypeId]         BIGINT          NULL,
+    [Payover]                   DECIMAL (18, 2) NULL,
+    [InsuranceFrom]             DATE            NULL,
+    [InsuranceTo]               DATE            NULL,
+    [CalculationTemplateAmount] DECIMAL (18, 4) NULL,
+    CONSTRAINT [TransactionProduct_PK] PRIMARY KEY CLUSTERED ([Id] ASC),
+    CONSTRAINT [FK_TransactionProduct_StaticValue_Body] FOREIGN KEY ([BodyConditionId]) REFERENCES [dbo].[StaticValue] ([Id]),
+    CONSTRAINT [FK_TransactionProduct_StaticValue_Mech] FOREIGN KEY ([MechanicalConditionId]) REFERENCES [dbo].[StaticValue] ([Id]),
+    CONSTRAINT [TransactionProduct_FK_Country] FOREIGN KEY ([CountryId]) REFERENCES [dbo].[Country] ([Id]),
+    CONSTRAINT [TransactionProduct_FK_Product] FOREIGN KEY ([ProductId]) REFERENCES [dbo].[Product] ([Id]),
+    CONSTRAINT [TransactionProduct_FK_ProductLine] FOREIGN KEY ([ProductLineId]) REFERENCES [dbo].[ProductLine] ([Id]),
+    CONSTRAINT [TransactionProduct_FK_ProductOption] FOREIGN KEY ([ProductOptionId]) REFERENCES [dbo].[ProductOption] ([Id]),
+    CONSTRAINT [TransactionProduct_FK_StaticValueTransactionTypeId] FOREIGN KEY ([TransactionTypeId]) REFERENCES [dbo].[StaticValue] ([Id]),
+    CONSTRAINT [TransactionProduct_FK_Transaction] FOREIGN KEY ([TransactionId]) REFERENCES [dbo].[Transaction] ([Id]),
+    CONSTRAINT [TransactionProduct_FK_UsersCreatedBy] FOREIGN KEY ([CreatedBy]) REFERENCES [dbo].[Users] ([Id]),
+    CONSTRAINT [TransactionProduct_FK_UsersModifiedBy] FOREIGN KEY ([ModifiedBy]) REFERENCES [dbo].[Users] ([Id])
+);
+
+
+GO
+EXECUTE sp_addextendedproperty @name = N'MS_Description', @value = N'This table for Product and product Option respective Transaction.', @level0type = N'SCHEMA', @level0name = N'dbo', @level1type = N'TABLE', @level1name = N'TransactionProduct';
+

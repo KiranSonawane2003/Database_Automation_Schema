@@ -1,0 +1,25 @@
+﻿CREATE TABLE [dbo].[ProductDetailsReportFilter] (
+    [Id]               BIGINT         IDENTITY (1, 1) NOT NULL,
+    [MasterReportId]   BIGINT         NOT NULL,
+    [StartDate]        DATE           NULL,
+    [EndDate]          DATE           NULL,
+    [IsEmailReport]    BIT            CONSTRAINT [DF_ProductDetailsReportFilter_IsEmailReport] DEFAULT ((0)) NOT NULL,
+    [ProductTypeId]    BIGINT         NULL,
+    [ProductSubTypeId] BIGINT         NULL,
+    [Email]            NVARCHAR (100) NULL,
+    [CopiedFrom]       BIGINT         NULL,
+    [CountryId]        BIGINT         NULL,
+    [IsActive]         BIT            CONSTRAINT [DF_ProductDetailsReportFilter_IsActive] DEFAULT ((1)) NOT NULL,
+    [CreatedDate]      DATETIME       CONSTRAINT [DF_ProductDetailsReportFilter_CreatedDate] DEFAULT (getutcdate()) NULL,
+    [ModifiedDate]     DATETIME       NULL,
+    [CreatedBy]        INT            NULL,
+    [ModifiedBy]       INT            NULL,
+    CONSTRAINT [ProductDetailsReportFilter_PK] PRIMARY KEY CLUSTERED ([Id] ASC),
+    CONSTRAINT [ProductDetailsReportFilter_FK_Country] FOREIGN KEY ([CountryId]) REFERENCES [dbo].[Country] ([Id]),
+    CONSTRAINT [ProductDetailsReportFilter_FK_MasterReport] FOREIGN KEY ([MasterReportId]) REFERENCES [dbo].[MasterReport] ([Id]),
+    CONSTRAINT [ProductDetailsReportFilter_FK_ProductSubType] FOREIGN KEY ([ProductSubTypeId]) REFERENCES [dbo].[ProductSubType] ([Id]),
+    CONSTRAINT [ProductDetailsReportFilter_FK_ProductType] FOREIGN KEY ([ProductTypeId]) REFERENCES [dbo].[ProductType] ([Id]),
+    CONSTRAINT [ProductDetailsReportFilter_FK_UsersCreatedBy] FOREIGN KEY ([CreatedBy]) REFERENCES [dbo].[Users] ([Id]),
+    CONSTRAINT [ProductDetailsReportFilter_FK_UsersModifiedBy] FOREIGN KEY ([ModifiedBy]) REFERENCES [dbo].[Users] ([Id])
+);
+

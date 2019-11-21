@@ -1,0 +1,25 @@
+﻿CREATE TABLE [dbo].[TransactionReportFilterMapping] (
+    [Id]                        BIGINT   IDENTITY (1, 1) NOT NULL,
+    [TransactionReportFilterId] BIGINT   NULL,
+    [GroupId]                   BIGINT   NULL,
+    [BranchId]                  BIGINT   NULL,
+    [BusinessManagerId]         INT      NULL,
+    [SalesPersonId]             BIGINT   NULL,
+    [FinanceCompanyId]          BIGINT   NULL,
+    [CriteriaEnum]              INT      NULL,
+    [IsActive]                  BIT      DEFAULT ((0)) NOT NULL,
+    [CreatedDate]               DATETIME NULL,
+    [ModifiedDate]              DATETIME NULL,
+    [CreatedBy]                 INT      NULL,
+    [ModifiedBy]                INT      NULL,
+    CONSTRAINT [PK_TransactionReportFilterMapping] PRIMARY KEY CLUSTERED ([Id] ASC),
+    CONSTRAINT [FK_TransactionReportFilterMapping_Branch] FOREIGN KEY ([BranchId]) REFERENCES [dbo].[Branch] ([Id]),
+    CONSTRAINT [FK_TransactionReportFilterMapping_CompanyCompanyTypeMapping] FOREIGN KEY ([FinanceCompanyId]) REFERENCES [dbo].[CompanyCompanyTypeMapping] ([Id]),
+    CONSTRAINT [FK_TransactionReportFilterMapping_Group] FOREIGN KEY ([GroupId]) REFERENCES [dbo].[Group] ([Id]),
+    CONSTRAINT [FK_TransactionReportFilterMapping_SalesPerson] FOREIGN KEY ([SalesPersonId]) REFERENCES [dbo].[SalesPerson] ([Id]),
+    CONSTRAINT [FK_TransactionReportFilterMapping_TransactionReportFilter] FOREIGN KEY ([TransactionReportFilterId]) REFERENCES [dbo].[TransactionReportFilter] ([Id]),
+    CONSTRAINT [FK_TransactionReportFilterMapping_Users_BusinessManager] FOREIGN KEY ([BusinessManagerId]) REFERENCES [dbo].[Users] ([Id]),
+    CONSTRAINT [FK_TransactionReportFilterMapping_Users_CreatedBy] FOREIGN KEY ([CreatedBy]) REFERENCES [dbo].[Users] ([Id]),
+    CONSTRAINT [FK_TransactionReportFilterMapping_Users_ModifiedBy] FOREIGN KEY ([ModifiedBy]) REFERENCES [dbo].[Users] ([Id])
+);
+

@@ -1,0 +1,7 @@
+C:\Users\AshishV\source\repos\Database_Automation\DemoDatabaseData\DemoDatabaseData\bin\Debug\DemoDatabaseData.dacpac
+C:\Users\AshishV\source\repos\Database_Automation\DemoDatabaseData\DemoDatabaseData\obj\Debug\Model.xml
+C:\Users\AshishV\source\repos\Database_Automation\DemoDatabaseData\DemoDatabaseData\obj\Debug\refactor.xml
+C:\Users\AshishV\source\repos\Database_Automation\DemoDatabaseData\DemoDatabaseData\obj\Debug\postdeploy.sql
+C:\Users\AshishV\source\repos\Database_Automation\DemoDatabaseData\DemoDatabaseData\obj\Debug\predeploy.sql
+C:\Users\AshishV\source\repos\Database_Automation\DemoDatabaseData\DemoDatabaseData\obj\Debug\DemoDatabaseData.dll
+C:\Users\AshishV\source\repos\Database_Automation\DemoDatabaseData\DemoDatabaseData\obj\Debug\DemoDatabaseData.pdb

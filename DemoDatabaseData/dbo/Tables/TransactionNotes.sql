@@ -1,0 +1,26 @@
+﻿CREATE TABLE [dbo].[TransactionNotes] (
+    [Id]                    BIGINT          IDENTITY (1, 1) NOT NULL,
+    [TransactionId]         BIGINT          NULL,
+    [BodyConditionId]       BIGINT          NULL,
+    [MechanicalConditionId] BIGINT          NULL,
+    [Trim]                  NVARCHAR (50)   NULL,
+    [Warranty]              BIGINT          NULL,
+    [Features]              NVARCHAR (1000) NULL,
+    [CountryId]             BIGINT          NULL,
+    [IsActive]              BIT             DEFAULT ((1)) NOT NULL,
+    [CreatedDate]           DATETIME        DEFAULT (getutcdate()) NOT NULL,
+    [ModifiedDate]          DATETIME        NULL,
+    [CreatedBy]             INT             NULL,
+    [ModifiedBy]            INT             NULL,
+    [FuelTypeId]            BIGINT          NULL,
+    CONSTRAINT [TransactionNotes_PK] PRIMARY KEY CLUSTERED ([Id] ASC),
+    CONSTRAINT [TransactionNotes_FK_Country] FOREIGN KEY ([CountryId]) REFERENCES [dbo].[Country] ([Id]),
+    CONSTRAINT [TransactionNotes_FK_StaticValueBodyCondition] FOREIGN KEY ([BodyConditionId]) REFERENCES [dbo].[StaticValue] ([Id]),
+    CONSTRAINT [TransactionNotes_FK_StaticValueFuelTypeId] FOREIGN KEY ([FuelTypeId]) REFERENCES [dbo].[StaticValue] ([Id]),
+    CONSTRAINT [TransactionNotes_FK_StaticValueMechanicalCondition] FOREIGN KEY ([MechanicalConditionId]) REFERENCES [dbo].[StaticValue] ([Id]),
+    CONSTRAINT [TransactionNotes_FK_StaticValueWarranty] FOREIGN KEY ([Warranty]) REFERENCES [dbo].[StaticValue] ([Id]),
+    CONSTRAINT [TransactionNotes_FK_Transaction] FOREIGN KEY ([TransactionId]) REFERENCES [dbo].[Transaction] ([Id]),
+    CONSTRAINT [TransactionNotes_FK_UsersCreatedBy] FOREIGN KEY ([CreatedBy]) REFERENCES [dbo].[Users] ([Id]),
+    CONSTRAINT [TransactionNotes_FK_UsersModifiedBy] FOREIGN KEY ([ModifiedBy]) REFERENCES [dbo].[Users] ([Id])
+);
+
